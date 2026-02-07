@@ -39,3 +39,12 @@ hr {
     margin: 0 auto;
     
 }
+
+button {
+    margin: 15%;
+    cursor: pointer;
+    display: block;
+    height: 0 auto;
+    padding: 20px;
+    border-radius: 20%;
+}
