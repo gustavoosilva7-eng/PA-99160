@@ -1,0 +1,41 @@
+/* RESET E CONFIGURAÇÕES GERAIS  */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url("assets/back.avif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(117,16,16);
+}
+
+img {
+    max-width: 50%;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+}
+
+p {
+    text-align: justify;
+    font-size: 25px ;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 200px ;
+    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;   
+}
+/* 2404881205 */
+hr {
+    max-width: 50%;
+    margin: 0 auto;
+    
+}

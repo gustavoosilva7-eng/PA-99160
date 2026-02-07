@@ -1,18 +1,8 @@
-# GIT
+<!-- TAG DE ABERTURA -->
+<html>
+    <head>
+        <title> Senai</title>
 
-## COMANDOS BÁSICOS
-
-Autenticas via computador local no GitHub:
-```
-gh auth login
-```
-
-Clonar repositório no GitHub:
-```
-gh repo clone nome-do-repositorio
-```
-
-Abrir VS Code:
-```
-code .
-```
+<!-- TAG DE FECHAMENTO -->
+     </head>
+ </html>
