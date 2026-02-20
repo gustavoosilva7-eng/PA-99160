@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("assets/fundo.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.img-1 {
+    width: 200px;
+}
+.img-2 {
+    width: 200px;
+}
+.img-3 {
+    width: 200px;
+}
+.img-0 {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    
+}
+.img-0 button {
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 20%;
+    background-color: transparent;
+    border: none; 
+}
+img{
+    display: block;
+    margin: 0 auto;
+    width: 50vh;
+}
+h1 {
+    font-size: 100px;
+    text-align: center;
+    color: rgb(117,16,16);
+    font-family: 'Google Sans Code', sans-serif;
+}
+.lista {
+    text-decoration: none;
+    list-style-type: none;
+    text-align: justify;
+    font-size: 50px ;
+    font-family:'google sans code', sans-serif;
+    margin-left: 150px ;
+    margin-right: 150px;
+    margin-top: 100px;
+    margin-bottom: 50px;   
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+.lista a {
+    text-decoration: none;
+    color: rgb(117,16,16);
+    font-family: 'Google Sans Code', sans-serif;
+    padding: 10px;
+    -webkit-text-stroke: 2px black;
+}
+.text-banana {
+    text-align: justify;
+    font-size: 25px ;
+    font-family: 'Google Sans Code', sans-serif;
+    margin-left: 200px ;
+    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;   
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.text-maca{
+    text-align: justify;
+    font-size: 25px;
+    font-family: 'Google Sans Code', sans-serif;
+    margin-left: 200px ;
+    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;   
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.text-laranja {
+    text-align: justify;
+    font-size: 25px ;
+    font-family: 'Google Sans Code', sans-serif;
+    margin-left: 200px ;
+    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  
+}
+.button-laranja {
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20%;
+    background-color: transparent;
+    border: none; 
+    cursor: pointer;
+}
+.button-laranja img {
+    width: 100px;
+}
+.button-maca {
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20%;
+    background-color: transparent;
+    border: none; 
+    cursor: pointer;
+}
+.button-maca img {
+    width: 100px;
+}
+.button-banana {
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20%;
+    background-color: transparent;
+    border: none; 
+    cursor: pointer;
+}
+.button-banana img {
+    width: 100px;
+}
