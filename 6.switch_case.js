@@ -1,4 +1,4 @@
-const opcao = 30
+const opcao = 3
 
 switch (opcao) {
     case 1:
