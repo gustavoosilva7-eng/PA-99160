@@ -26,3 +26,13 @@ function dividir(a,b){
 
 const divisao = dividir(10,2)
 console.log(`divisão: ${divisao}`)
+
+
+// função sem retorto
+function cabecalho(){
+    console.log("====================")
+    console.log("   Calculadora JS   ")
+    console.log("====================") 
+}
+
+cabecalho()
