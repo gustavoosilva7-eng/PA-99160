@@ -1,13 +1,14 @@
+
 function gerarTabuada(){
     // Pegar o valor do input no HTML.
     const numeroInput = document.getElementById("numeroInput")
     let numero = parseInt(numeroInput.value);
-    
+    const limparBotao = document.querySelector('#limparBotao')
     
     // Pega o elemnto HTML onde a tabuada será exibida.
     const resultadoDiv = document.getElementById("resultadoTabuada");
     resultadoDiv.innerHTML = "";
-
+    
     // verifica se a entrada é um numero valido.
     if(isNaN(numero) || numero === null || numero === ""){
         resultadoDiv.innerHTML = "<p> Por favor, digite um número...</p>";
@@ -22,7 +23,15 @@ function gerarTabuada(){
         let resultado = numero * i;
         resultadoDiv.innerHTML += `<p> ${numero} x ${i} = ${resultado}</p>`;
     }
+
+    
+    limparBotao.addEventListener('click', () => {
+        numeroInput.value = "";    // Limpa o campo de digitação
+        resultadoDiv.innerHTML = ""; // Limpa os resultados da tela
+        numeroInput.focus()
+    });
 }
+
 
 const gerarBotao = document.getElementById('gerarBotao');
 gerarBotao.addEventListener("click", gerarTabuada);
