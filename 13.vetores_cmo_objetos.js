@@ -17,8 +17,7 @@ console.log("\nfiltrando idade maior que usuário: ")
 const maioresDe18 = usuarios.filter(usuario => usuario.idade >= 18)
 
 //EXIBINDO APENAS OS USUÁRIOS MAIORES DE 18 ANOS
-maioresDe18.forEach(usuario => {
-    console.log(`Nome: ${usuario.nome}, Idade: ${usuario.idade}`)
+maioresDe18.forEach(usuario => {console.log(`Nome: ${usuario.nome}, Idade: ${usuario.idade}`)
 })
 //EXIBINDO A QUANTIDADE DE USUÁRIOS MAIORES DE 18 ANOS
 console.log("\nQuantidade de usuários maiores de 18 anos: " + maioresDe18.length)
