@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Gerador de tabuada</h1>
+    <main>
     <div class="container">
-        <h1>Gerador de tabuada</h1>
-        
         <label for="numeroInput">Digite um número: </label>
-        <input type="number" id="numeroInput" placeholder="Ex.: 5">
+        <input type="number" id="numeroInput" placeholder="Ex.: 5" required>
         <button id="gerarBotao">Gerar Tabuada</button>
-        
-        <div id="resultadoTabuada"></div>
+        <input id="limparBotao" type="reset" value="Limpar">
     </div>
-
+    <div id="resultadoTabuada"></div>
+    </main>
     <script src = "script.js"></script>
 </body>
 </html>

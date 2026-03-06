@@ -1,24 +1,56 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
 }
 body{
-    background-color:aquamarine ;
+    background-color:black ;
 }
-div.container{
-    width: 600px;
-    height: 350px;
-    background-image: linear-gradient(to right, red, yellow) no-repeat ;
+h1{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    text-align: center;
+    line-height: 200px;
+    width: 500px;
+    height: 200px;
+    margin: auto;
+}
+main{
+    border: 1px solid white;
+    background-image: linear-gradient(to right, red, yellow);
+    border-radius: 10px;
+}
+.container{
+    text-align: center;
+    height: 30px;
+}
+#gerarBotao,#limparBotao{
+    text-decoration: none;
+    background-color:white;
+    box-shadow: 2px 2px  5px black;
+    border-radius: 5px;
+    width: 100px;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.3s, border 0.3s;
+}
+#gerarBotao:hover, #limparBotao:hover{
+    color: white;
+    background-color: black;
+    transform: translate(5px 5px);
+}
+#resultadoTabuada{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+}
+label{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    margin: auto;
+}
+#numeroInput{
+    width: 50px;
     margin: auto;
 
-}
-div > h1{
-    text-align: center;
-    font-size: 2em;
-    font-family: 'Courier New', Courier, monospace;
-}
-.gerador{
-    align-items: center;
-    margin: auto;
 }
