@@ -1,0 +1,177 @@
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Cores que remetem à educação e concentração */
+    background-color: #f0f4f8;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+/* O Card das Notas */
+.notas {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e1e8ed;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título implícito ou Header (Adicionando estilo para o contexto) */
+.notas::before {
+    content: "Cálculo de Média";
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #243b55;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #546e7a;
+    margin-bottom: 8px;
+    margin-top: 15px;
+}
+
+/* Estilização dos inputs de número */
+input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #cfd8dc;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #263238;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input[type="number"]:focus {
+    border-color: #3498db;
+    background-color: #f7fbff;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* Placeholder discreto */
+input::placeholder {
+    color: #b0bec5;
+}
+
+/* Espaço para o resultado aparecer via JS */
+.resultado {
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    text-align: center;
+    font-weight: 700;
+    color: #2c3e50;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #cfd8dc;
+}
+
+/* Destaque para quando a nota for exibida (exemplo de classe dinâmica) */
+.resultado.aprovado {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.resultado.reprovado {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+/* Estilização do Botão de Resultado */
+input[type="button"] {
+    width: 100%;
+    height: 50px;
+    margin-top: 25px;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+}
+
+/* Efeito ao passar o mouse */
+input[type="button"]:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #1c598a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(52, 152, 219, 0.3);
+}
+
+/* Efeito ao clicar */
+input[type="button"]:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
+}
+
+/* Estilização da Div de Resposta */
+#resposta {
+    margin-top: 20px;
+    padding: 15px;
+    min-height: 60px;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    border: 2px dashed #cbd5e0;
+    color: #4a5568;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+/* Classes utilitárias para usar com JavaScript conforme o resultado */
+.sucesso {
+    background-color: #d1fae5;
+    color: #065f46;
+    border-style: solid;
+    border-color: #34d399;
+}
+
+.atencao {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border-style: solid;
+    border-color: #f87171;
+}
+
+/* Responsividade para telas muito pequenas */
+@media (max-width: 480px) {
+    .notas {
+        padding: 20px;
+    }
+}
