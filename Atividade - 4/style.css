@@ -1,0 +1,49 @@
+@charset "UFT-8";
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: linear-gradient(180deg, lightgreen,lightyellow,white);
+    background-attachment: fixed;
+}
+header > h1{
+    text-align: center;
+    text-shadow: 1px 1px 3px lightgray;
+}
+.container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+.input{
+    width: 40vw;
+    height: 40vh;
+    background-color: yellowgreen;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;   /* Empilha os itens verticalmente */
+    justify-content: center;  /* Centraliza verticalmente no container */
+    align-items: center;      /* Centraliza horizontalmente */
+    gap: 5px;               /* Cria um espaço entre cada campo */
+    padding: 20px;
+    border-radius: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#enviar{
+    width:20vw;
+    height: 4vh;
+    background-color: lightcyan;
+    border: none;
+    border-radius: 7px;
+}
+#enviar:hover{
+    transform: translate3d(1px, 2px, 1px);
+    background-color: greenyellow;
+    color: white;
+    transition: .2s;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aposentadoria</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Solicitar Aposentadoria</h1>
+        <section class="container">
+            <article class="input">
+                <label for="matricula">Digite sua Matricula: </label>
+                <input type="number" name="mat" id="matricula" required placeholder="Ex:. 123456">
+                <label for="nascimneto">Data de Nascimento</label>
+                <input type="date" name="data" id="nascimento" required>
+                <label for="anos">Tempo de trabalho: </label>
+                <input type="number" name="trabalho" id="anos" required placeholder="Ex: 30 Anos">
+                <input type="button" value="botao" id="enviar">
+                <div id="required">
+
+                </div>
+            </article>
+        </section>
+    </header>
+    <script src="script.js"></script>
+</body>
+</html>
