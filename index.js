@@ -9,6 +9,25 @@ const sequelize = new Sequelize('db_api', 'root', '',{
 })
 
 // ORM - MAPEANDO CLASSE PARA TABELA NO BANCO DE DADOS.
+const Produto = sequelize.define('Produto', {
+    nome: {
+        type: DataTypes.STRING,
+        allowNull:false
+    },
+    quantidade: {
+        type: DataTypes.INTEGER,
+        allowNull:false,
+    },
+    lote: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        unique: true,
+    },
+    preco: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+})
 
 const Cliente = sequelize.define('Cliente', {
     nome: {
@@ -39,7 +58,10 @@ app.get('/clientes', async(req, res) => {
     const todosOsClientes = await Cliente.findAll()
     res.json(todosOsClientes)
 })
-
+app.get('/produtos', async(req, res) => {
+    const todosOsProdutos = await Produto.findAll()
+    res.json(todosOsProdutos)
+})
 // Rota para cadastrar um cliente e inserir no banco de dados.
 app.post('/clientes', async(req, res) => {
     try{
@@ -53,6 +75,21 @@ app.post('/clientes', async(req, res) => {
     } catch (erro) {
         res.status(400).json({
             mensagem: 'Erro ao cadastrar cliente. Verifique se o e-mail já existe'
+        })
+    }
+})
+app.post('/produtos', async(req,res) => {
+    try{
+        const {nome, quantidade, lote, preco} = req.body
+        const novoProduto = await Produto.create({nome, quantidade, lote, preco})
+
+        res.status(201).json({
+            mensagem: 'Produto cadastrado com sucesso.',
+            Produto: novoProduto
+        })
+    } catch (erro) {
+        res.status(400).json({
+            mensagem: ' Erro ao cadastrar produto. verifique se o produto já existe'
         })
     }
 })
