@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mysql2": "^3.22.3",
+    "sequelize": "^6.37.8"
+  },
+  "name": "pa-99160",
+  "version": "1.0.0",
+  "description": "Autenticas via computador local no GitHub:\r ```\r gh auth login\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavoosilva7-eng/PA-99160.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/gustavoosilva7-eng/PA-99160/issues"
+  },
+  "homepage": "https://github.com/gustavoosilva7-eng/PA-99160#readme"
+}
