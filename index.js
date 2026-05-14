@@ -1,106 +1,166 @@
 const express = require ('express');
 const cors = require ('cors');
-const {Sequelize, DataTypes } = require('sequelize');
+const {Sequelize, DataTypes} =  require('sequelize');
 
-// CONFIGURANDO CONEXÃO COM BANCO DE DADOS.
-const sequelize = new Sequelize('db_api', 'root', '',{
+// Configurando conexão com Banco de dados.
+const sequelize = new Sequelize('primeira_API', 'root', '',{
     host: 'localhost',
     dialect: 'mysql'
-})
+});
 
-// ORM - MAPEANDO CLASSE PARA TABELA NO BANCO DE DADOS.
-const Produto = sequelize.define('Produto', {
+//ORM - Mapeando classe para tabela no banco de dados.
+const Cliente = sequelize.define('Cliente', {
     nome: {
         type: DataTypes.STRING,
         allowNull:false
     },
-    quantidade: {
-        type: DataTypes.INTEGER,
-        allowNull:false,
-    },
-    lote: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        unique: true,
-    },
-    preco: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-})
-
-const Cliente = sequelize.define('Cliente', {
-    nome: {
+    cpf: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull:false,
+        unique: true
     },
     email: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
+        allowNull: false
     },
-    telefone: {
+    telefone:{
+        type: DataTypes.FLOAT,
+        allowNull:false
+    },
+    endereco: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
     },
 })
 
-//CONFIGURANDO SERVIDOR EXPRESS.
-const app = express()
-app.use(cors()) // PERMITE O FRONT-END ACESSAR A API
-app.use(express.json())// PERMITE O SERVIDOR ENTENDER JSON.
+const moto = sequelize.define('moto', {
+    cor: {
+        type: DataTypes.STRING,
+        allowNull:false
+    },
+    modelo: {
+        type: DataTypes.STRING,
+        allowNull:false
+    },
+    cilindrada: {
+        type: DataTypes.INTEGER,
+        allowNull:false
+    },
+    placa: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique:true
+    },
+    marca:{
+        type: DataTypes.STRING,
+        allowNull:false
+    },
+})
 
+const carro = sequelize.define('carro', {
+    tipo: {
+        type: DataTypes.STRING,
+        allowNull:false
+    },
+    modelo: {
+        type: DataTypes.STRING,
+        allowNull:false
+    },
+    nome: {
+        type: DataTypes.INTEGER,
+        allowNull:false
+    },
+    placa: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique:true
+    },
+    marca:{
+        type: DataTypes.STRING,
+        allowNull:false
+    },
+})
+
+//Configurando servidor EXPRESS
+const app = express()
+app.use(cors())
+app.use(express.json())
+
+// Definindo rotas
 const port = 3000
 
-// DEFININDO ROTAS.
-// Rota para buscar todos os Clientes no banco de dados.
+
+// Rota para buscar todos os clientes no banco de dados.
 app.get('/clientes', async(req, res) => {
     const todosOsClientes = await Cliente.findAll()
     res.json(todosOsClientes)
 })
-app.get('/produtos', async(req, res) => {
-    const todosOsProdutos = await Produto.findAll()
-    res.json(todosOsProdutos)
+app.get('/motos', async(req, res) =>{
+    const todasMotos = await moto.findAll()
+    res.json(todasMotos)
 })
-// Rota para cadastrar um cliente e inserir no banco de dados.
-app.post('/clientes', async(req, res) => {
+app.get('/carros', async(req, res)=> {
+    const todosCarros = await carro.findAll()
+    res.json(todosCarros)
+})
+
+// rota para cadastrar um cliente e inserir no banco de dados.
+
+app.post('/cliente', async(req, res) => {
     try{
-        const { nome, email, telefone} = req.body
-        const novoCliente = await Cliente.create({nome, email, telefone})
+        const{nome, cpf , telefone, email, endereco} = req.body
+        const novoCliente = await Cliente.create({nome,cpf,telefone,email,endereco})
 
         res.status(201).json({
-            mensagem: 'Cliente cadastrado com sucesso.',
-            Cliente: novoCliente
+            mensagem: 'Cliente cadastrado com sucesso',
+            cliente: novoCliente
+        })
+    } catch (erro) {
+            res.status(400).json({
+                mensagem: 'Erro ao cadastrar cliente. Verifique se o e-mail já existe'
+            })
+        }
+})
+
+app.post('/moto', async(req, res) =>{
+    try{
+        const{cor, modelo,cilindrada,placa,marca} = req.body
+        const motoNova = await Moto.create({cor,modelo,cilindrada,placa,marca})
+
+        res.status(201).json({
+            mensagem: 'Moto Cadastrada com sucesso',
+            Moto: motoNova
         })
     } catch (erro) {
         res.status(400).json({
-            mensagem: 'Erro ao cadastrar cliente. Verifique se o e-mail já existe'
+            mensagem: 'Erro ao cadastrar Moto. Verifique se a Moto já foi cadastrada'
         })
     }
 })
-app.post('/produtos', async(req,res) => {
+
+app.post('/carro', async(req,res) =>{
     try{
-        const {nome, quantidade, lote, preco} = req.body
-        const novoProduto = await Produto.create({nome, quantidade, lote, preco})
+        const{tipo,modelo,nome,placa,marca} = req.body
+        const carroNovo = await carro.create ({tipo,modelo,nome,placa,marca})
 
         res.status(201).json({
-            mensagem: 'Produto cadastrado com sucesso.',
-            Produto: novoProduto
+            mensagem: 'Carro cadastrado com sucesso',
+            Carro: carroNovo
         })
-    } catch (erro) {
+    } catch (erro){
         res.status(400).json({
-            mensagem: ' Erro ao cadastrar produto. verifique se o produto já existe'
+            mensagem: ' Erro ao cadastrar Carro. Verifique se o Carro já foi cadastrado'
         })
     }
 })
 
-// INICIAR API E CONECTAR AO BANCO DE DADOS.
+// Iniciar API  e Conectar ao Banco de dados.
 
 sequelize.sync().then(() => {
     app.listen(port, () =>{
-        console.log(`🚀 Servidor rodando em http://localhost:${port}`)
-        console.log('🤪 Banco de dados sincronizado.')
+        console.log(`Servidor rodando em http://localhost:${port}`)
+        console.log(' Banco de dados sincronizado.')
     })
 }).catch((erro) => {
-    console.error('❌ Erro ao conectar ou sincronizar com o banco de dados', erro)
+    console.erro(' Erro ao conectar ou sincronizar com o banco de dados', erro)
 })
